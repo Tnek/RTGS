@@ -1,5 +1,4 @@
 #/usr/bin/python
-from PIL import Image, ImageTk
 import tkinter as tk
 
 class Sector(object):
