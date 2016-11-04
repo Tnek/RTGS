@@ -117,6 +117,7 @@ normal_mode_right = {
      "bE":("S5",), "bF":("S7",), "bG":("S6",), "bH":("S6",),
      "bI":("S7",), "bJ":(), "bL":("R2",), "bK":("R1",)
 }
+
 normal_mode_left = {
      "L1":("S3",),
      "L2":("bB",),
@@ -194,13 +195,15 @@ def reset_graph(objects):
 
 def astar(start, end, normal_mode=False):
     """ 
-        Implementation of Dijkstra's algorithm
+        Implementation of Astar algorithm
 
         :param start: Sector object to store next step in path of. 
         :param end: String which is the side it should stop at e.x. "R" or "L" 
 
         :return: List containing all nodes in path
     """
+    if normal_mode and start.name == "L1" or start.name == "R3":
+        return None
     openset = {start}
     while len(openset) > 0:
         min_weight = None
